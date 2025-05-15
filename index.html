@@ -1,10 +1,8 @@
-
-     
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página Interactiva</title>
 
   <!-- Íconos Font Awesome -->
@@ -18,44 +16,47 @@
       color: #fff;
     }
 
-    /* === BANNER ESTILO HERO === */
+    /* === BANNER HERO CON IMAGEN VISIBLE === */
     header {
       position: relative;
       width: 100%;
-      height: 100vh; /* Ocupa toda la altura de la pantalla */
+      height: 100vh;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
     }
 
     header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Asegura que cubra todo sin deformarse */
       z-index: 1;
-      filter: brightness(0.6); /* Oscurece la imagen para que el texto resalte */
+      filter: brightness(0.5);
     }
 
-    header h1,
-    header p {
+    header .hero-text {
       position: relative;
       z-index: 2;
-      color: white;
-      margin: 0;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: fadeIn 2s ease-in-out;
     }
 
     header h1 {
       font-size: 3em;
-      margin-bottom: 10px;
+      margin: 0;
     }
 
     header p {
-      font-size: 1.5em;
+      font-size: 1.4em;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-60%); }
+      to { opacity: 1; transform: translateY(-50%); }
     }
 
     .content {
@@ -112,7 +113,7 @@
       font-size: 0.85em;
     }
 
-    /* Responsive para pantallas pequeñas */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2em;
@@ -152,10 +153,10 @@
 </head>
 <body>
 
-  <!-- HEADER HERO CON IMAGEN -->
+  <!-- BANNER HERO -->
   <header>
     <img src="images/banner.jpg" alt="Banner educativo" />
-    <div>
+    <div class="hero-text">
       <h1>BY DANIELA PRADO</h1>
       <p>Contenido educativo</p>
     </div>
@@ -182,5 +183,17 @@
       <iframe 
         src="https://www.youtube.com/embed/QcxAqZabICY?si=THIViqI3GIGIUM8m" 
         title="YouTube video player"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <div class="copyright">© Video propiedad de YouTube y del creador original.</div>
+    </div>
+
+  </div>
+
+  <footer>
+    Esta página es solo con fines educativos. Todo el contenido multimedia pertenece a sus respectivos propietarios.
+  </footer>
+
+</body>
+</html>
